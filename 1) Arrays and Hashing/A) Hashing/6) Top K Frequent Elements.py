@@ -22,3 +22,37 @@ def topKFrequent(nums: List[int], k: int) -> List[int]:
     
     sorted_items = sorted(num_map.items(), key=lambda x: -x[1])
     return [item[0] for item in sorted_items[:k]]
+
+"""
+Alternatives using other sorting algorithms:
+"""
+
+#Simple Heap Sort:
+def topKFrequent(nums: List[int], k: int) -> List[int]:
+    num_map = Counter(nums)
+    heap = []
+      
+    for key,value in num_map.items():
+        heapq.heappush(heap,(-value,key))
+
+    res = []
+    while (len(res)<k):
+        res.append(heapq.heappop(heap)[1])
+        
+    return res
+
+#Heap sort with limit of k:
+def topKFrequent(nums: List[int], k: int) -> List[int]:
+    counter = Counter(nums)
+    heap = []
+    
+    for key, val in counter.items():
+        heapq.heappush(heap, (val, key))
+        if len(heap) > k:
+            heapq.heappop(heap)
+    
+    res = []
+    while heap:
+        res.append(heapq.heappop(heap)[1])
+        
+    return res
