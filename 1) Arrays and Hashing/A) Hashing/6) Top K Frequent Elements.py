@@ -10,4 +10,15 @@ Heap sort with limit of k did well than simple heap sort but the tim sort did th
 So i will use tim sort but i will list the other two as well.
 """
 
-  
+def topKFrequent(nums: List[int], k: int) -> List[int]:
+    num_map = Counter(nums) 
+
+    """
+    Another alternative for num_map = Counter(nums):
+    num_map = {}
+    for num in nums:
+        num_map[num] = num_map.get(num,0)+1
+    """
+    
+    sorted_items = sorted(num_map.items(), key=lambda x: -x[1])
+    return [item[0] for item in sorted_items[:k]]
