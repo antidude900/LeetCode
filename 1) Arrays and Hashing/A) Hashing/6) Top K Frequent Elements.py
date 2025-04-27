@@ -6,7 +6,8 @@ For this: we first count the frequency of each element(using heap for faster acc
 Then, we just need to sort according to the frequency(in descending order for highest to come first) and then return the the first k of those
 I used various sorting algorithm such as tim sort, heap sort and heap sort with limit of k and here are the results:
 
-Heap sort with limit of k did well than simple heap sort but its efficiency was not quite consistent! 
-whereas tim sort with same efficiency as of the heap sort with limit of k is alot consistent!
-So i used tim sort but i will list the other two as well!
+Heap sort with limit of k did well than simple heap sort but the tim sort did the best!!!
+So i will use tim sort but i will list the other two as well.
 """
+
+  
