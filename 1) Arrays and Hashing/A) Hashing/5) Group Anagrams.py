@@ -11,6 +11,8 @@ def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
     frequencies = defaultdict(list)
     for word in strs:
         count = [0]*26    #as there are 26 alphabets
+        #instead of the ascii method,we can just simply sort the word and use that as the key for the frequencies dict
+        #it might sound worse in theory but it performs more well(maybe because of the length of strings being small)
         for letter in word:
             count[ord(letter) - ord('a')] += 1    #for statring indexing from 0
         frequencies[tuple(count)].append(word)    #cant use list as the key so turning it into tuple
