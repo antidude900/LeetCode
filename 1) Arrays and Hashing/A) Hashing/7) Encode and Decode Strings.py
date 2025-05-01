@@ -1,7 +1,7 @@
 """
 Approach:
 Here we have to encode a list of strings into a single string and we can also decode back the signle string into list of strings.
-A simple approach might come in mind to just add a certain symbol brtween the single strings when combining them all and based on that symbol, we can decode it back to multiple strings!
+A simple approach might come in mind to just add a certain symbol between the single strings when combining them all and based on that symbol, we can decode it back to multiple strings!
 
 (Will be referring single string as word to avoid confusion)
 But there's a edge case! What if the symbol which we are using to seperate the individual words also comes in the list of words???)
