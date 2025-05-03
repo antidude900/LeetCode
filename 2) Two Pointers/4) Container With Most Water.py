@@ -23,10 +23,11 @@ def maxArea(height: List[int]) -> int:
         max_area = max(max_area, curr_area)    
         
         if (max_height*(j-i)<=max_area):    
-            break    #max_height is constant(it wont change). (j-i) changes by decreasing with each pointer update
-                     #So max_height*(j-i) also decreases with each pointer update.
+            break    #max_height among the all heights is constant(we took this so to give (j-i) the best possible height it can get)
+                     #(j-i) changes by decreasing with each pointer update.So max_height*(j-i) also decreases with each pointer update.
                      #which means if max_height*(j-i) is already less that the max_area we have found upto now,
-                     #theres no chance it will find area more than the current max_area because it will again decrease with the pointer update/
+                     #theres no chance it will find area more than the current max_area because it will again decrease with the pointer update
+                     #and it cant find any other height greater than max_height
                      #so there is no other area greater than the current max_area. thus current max_area is our final max_area
     
         if height[j]>height[i]:
