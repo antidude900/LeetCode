@@ -87,3 +87,7 @@ def trap(height: List[int]) -> int:
             rightMax = max(rightMax, height[r])
             res += rightMax - height[r]
     return res
+
+#Stack
+#For this first see this video: https://www.youtube.com/watch?v=lhzrp3Nbj-w
+#and then this discussion: https://chatgpt.com/share/681758a6-3a14-8003-9066-2f118e814350
