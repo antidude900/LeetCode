@@ -18,3 +18,14 @@ def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
         frequencies[tuple(count)].append(word)    #cant use list as the key so turning it into tuple
     
     return list(frequencies.values()) #returning only the values i.e the list of words grouped together as anagrams
+    
+
+#More efficient pne is by simply sorting the word and using htat as the key:
+def groupAnagrams(strs):
+    frequencies= defaultdict(list)
+        
+    for word in strs:
+        sorted_word = ''.join(sorted(word))
+        frequencies[sorted_word].append(word)
+        
+    return list(frequencies.values())
