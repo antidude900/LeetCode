@@ -18,13 +18,13 @@ def generateParenthesis(n: int) -> List[str]:
             res.append("".join(stack))
             return
           
-        if openN<n:
+        if openN<n:    
             stack.append('(')
             backtrack(openN+1,closeN)
             stack.pop() #poping is important to remove the changes we have done in one branch of recursion so that the another branch of recursion dont get affected 
                         #(as the branches have different stack strucure)
         
-        if closeN<openN:
+        if closeN<openN:    #we will be using if else of elif because both condition can arise at the same time which is what leads to branching!
             stack.append(')')
             backtrack(openN,closeN+1)
             stack.pop()
