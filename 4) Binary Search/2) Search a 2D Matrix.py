@@ -6,7 +6,7 @@ So instead we use binary search! First find the correct row using binary search 
 So to find correct row it will take log m time and for correct column log n. So total time is O(log(m)+log(n)) = O(log(m*n)) which is better than O(m*n)
 """
 
-def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
+def searchMatrix(matrix: List[List[int]], target: int) -> bool:
     startRow, endRow = 0, len(matrix) - 1
   
     while startRow <= endRow:    #binary search of row
