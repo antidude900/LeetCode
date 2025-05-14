@@ -25,22 +25,26 @@ def largestRectangleArea(heights: List[int]) -> int:
         stack.append((start,h))
     
     for i,h in stack:
-        max_area = max(max_area,h*(len(heights)-i))    #we did len(heights) instead of len(heights)-1 because we want the width upto the back of the last bar not upto the front of the last bar
+        max_area = max(max_area,h*(len(heights)-i))    #we did len(heights) instead of len(heights)-1 
+                                                       #because we want the width upto the back of the last bar not upto the front of the last bar
     return max_area
 
-#But here we have to store both height and index. how about only storing the index? If we are only storing the index in the stack, for sure we will need the original index of the element to get its height  
-#so how do we get its starting index? We simply see the index of the element below it in the stack as its the smallest element to it at the left which is from where it starts!
+#But here we have to store both height and index. how about only storing the index? 
+#If we are only storing the index in the stack, for sure we will need the original index of the element to get its height  
+#so how do we get its starting index? We simply see the index of the element below it in the stack as its the nearest element smaller than it at the left which is from where it starts!
 
 def largestRectangleArea(self, heights: List[int]) -> int:
     stack = [-1]   #This helps in two ways. To stop the popping of the elements from stack at the end(when we reach the final iteration)
-                   #As we have to see the previous element in the stack to find the start, it handles the edge case of only one element remaining in the stack(giving its index as its width)
+                   #As we have to see the previous element in the stack to find the start, 
+                   #it handles the edge case of only one element remaining in the stack(giving its index as its width)
     heights.append(0)    #This starts the popping of the elements of the stack at the final iteration until we reach that -1 in the stack
     area = 0
     for i in range(len(heights)):
         while heights[i] < heights[stack[-1]]:
             h = heights[stack.pop()]
-            w = i - stack[-1] - 1    #Here we are doign end of the current bar(as i is  the index of the start of the bar after it) - start of the smallest bar to its left. 
-                                     #But the width starts from the end of that smallest bar. So we have to do decrease that extra width taken i.e the width of the smallest bar = 1
+            w = i - stack[-1] - 1    #Here we are doign end of the current bar(as i is  the index of the start of the bar after it) - start of the nearest bar smaller to its left. 
+                                     #But the width starts from the end of that nearest bar smaller than it to its left.
+                                     #So we have to do decrease that extra width taken i.e the width of that bar = 1
             area = max(area, h * w)
         stack.append(i)
     
