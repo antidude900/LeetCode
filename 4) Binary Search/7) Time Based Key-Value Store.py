@@ -40,4 +40,4 @@ class TimeMap:
                 left = mid + 1
             else:
                 right = mid -1
-        return self.map[key][mid-1][1]
+        return timestamps[right][1]
