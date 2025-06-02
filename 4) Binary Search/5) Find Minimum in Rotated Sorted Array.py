@@ -13,7 +13,7 @@ def findMin(nums: List[int]) -> int:
     l, r = 0, len(nums) - 1
     while l < r:
         m = l + (r - l) // 2
-        print(m,l,r)
+        
         if nums[m] < nums[r]:
             r = m    #dont take r=m-1 like in first bad version because there we just needed a range to search. 
                      #so the r=m-1 and r=m really didnt mean anything as we could tune the range for both of them to be between l to m(exclusive) by the while loop (l<=r for r=m-1 and l<r for r=m)
