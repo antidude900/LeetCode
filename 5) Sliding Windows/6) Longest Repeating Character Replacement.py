@@ -1,6 +1,8 @@
 """
 Approach:
+Given a string and a integer 'k' where we change 'k' amount of characters from the substring, we have to find the length of the longest substring containing the same letter.
 
+We can simply use a hashmap to keep count of all the characters in the substring. Then we can keep track of the maximum frequency from that substring.
 """
 
 #Simple
@@ -53,8 +55,11 @@ and we have got a new maxf>old maxf. say the new maxf would be 1 higher than the
 If new maxf was more higher than old one, it is more better meaning "with this new maxf, we can make a new longer valid substring with more less replacement that the previous one.
 So yeah, if we found a new max_f greater than old maxf, we would have found a new solution and we then dont need to go through the whole invalid case!])
 
-Thus we are back to our previous valid size! Another optimization here also does the same thing which is changing the 'while' statement to "if".
+Thus we are back to our previous valid size! (Note: We wont be at the valid substring. It will just maintain the valid size. 
+And its ok because we are only concerned about the size of the longest substring and not the content of the longest substring)
+Another optimization here also does the same thing which is changing the 'while' statement to "if".
 So though this while->if optimization isnt necessary, still its better for reading purpose as "while" statement in the code can mislead to to a multiple iteration case but in reality it runs only once.
+
 
 and the final optimization! here, we dont need to calculate res = max(res, r - l + 1) for each window extend and just return r-l+1 at the end! how?
 As discussed above, it we get a invalid size, then it goes back to its previous valid size. So at the end of our iteration, we will always be end at the latest valid size.
