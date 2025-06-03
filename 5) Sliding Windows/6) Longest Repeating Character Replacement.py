@@ -22,8 +22,9 @@ def characterReplacement(s: str, k: int) -> int:
         res = max(res, r - l + 1)
     return res
 
-#Optimization:
+
 """
+Optimization:
 There are some very clever optimizations you can apply on the above basic solution.
 
 First thing to be clear is that suppose we go to length of say x for observation. 
