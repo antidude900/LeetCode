@@ -2,10 +2,11 @@
 Approach: Given s1 and s2 strings, we have to check whether any of the s1 permutation is the substring of s2.
 s1 permutation is simply s1 but jumbled up. Wait this sounds like one thing we have already done before, Anagram!
 Angaram also meant those words which when sorted produce the same word. So yes! Lets apply the algorithm we used in anagram i.e hashmap to solve it
+But here we have to match the hasmap of s1 and the window and not the whole s2. So be sure to remove the element which got out of the window
 """
 
 class Solution:
-    def checkInclusion(self, s1: str, s2: str) -> bool:
+    def checkInclusion(s1: str, s2: str) -> bool:
         if len(s1) > len(s2):
             return False
         
