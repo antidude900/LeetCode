@@ -35,7 +35,7 @@ class TimeMap:
         while left <= right:
             mid = left+(right - left) // 2
             if timestamp == timestamps[mid][0]:
-                return self.map[key][mid][1]
+                return timestamps[mid][1]
             elif timestamp > timestamps[mid][0]:
                 left = mid + 1
             else:
