@@ -26,10 +26,11 @@ def detectCycle(head: Optional[ListNode]) -> Optional[ListNode]:
     while f and f.next:
         f = f.next.next
         s = s.next
-        if f == s:
+        if f == s: #Code upto finding if cycle exists or not
+            #if exists, find the head
             t = head
-            while (t!=s):
+            while (t!=s): 
                 t = t.next
                 s = s.next
             return t
-    return None
+    return None #if cycle doesn't exist, return None as no cycle then no head of the cycle
