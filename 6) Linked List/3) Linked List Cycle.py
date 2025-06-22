@@ -5,7 +5,7 @@ A simple approach is that we can iterate through the linked list storing the nod
 if ever during the iteration we find the node in the hashset, we can know its a cycle.
 
 Another way is using fast and slow pointer. the slow pointer moves one step at a time whereas the fast pointer moves 2 steps at a time.
-thus, the fast pointer is double in speed of the slow pointer. hence if there is a cycle in the linked list, its certain the fast and slow pointer will overlap
+As a result the distanced between the pointers decrease by one in the cycle and is bound to overlap
 """
 
 def hasCycle(head: Optional[ListNode]) -> bool:
