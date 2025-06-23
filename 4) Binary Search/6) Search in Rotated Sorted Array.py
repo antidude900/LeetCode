@@ -14,14 +14,13 @@ def search(nums: List[int], target: int) -> int:
         if target == nums[mid]:
             return mid
         
-        if nums[left]<=nums[mid]:    #checking if the left section of the mid contains the rotated part or not(if yes, then we cant do binary search there so we go to the right part)
+        if nums[left]<=nums[mid]:    #checking if the mid is in the left sorted section
             if target<nums[left] or target>nums[mid]:    #if the target doesnt lie in the left section, we go to the right section
                 left = mid + 1
             else:    #if it does lie in the left section, we stay there
                 right = mid-1
         
-        else:    #both the left and right section cant have rotated part at same time as we are doing rotation from a single point i.e from the end.
-                 #so if left part has the rotated part, then the right section wont have the rotated part so its a sorted part
+        else:    #or in the right sorted section
             if target>nums[right] or target<nums[mid]:    #if the target doesnt lie in the right section, we go to the left section
                 right = mid - 1
             else:    #if it does lie in the right section, we stay there
