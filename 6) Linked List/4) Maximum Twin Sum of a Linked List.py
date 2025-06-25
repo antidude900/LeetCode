@@ -29,3 +29,20 @@ def pairSum(self, head: Optional[ListNode]) -> int:
         prev = prev.next
         slow = slow.next
     return res
+
+#Using a array/list
+class Solution:
+    def pairSum(head: Optional[ListNode]) -> int:
+        res = float("-inf")
+        indexed = []
+        temp = head
+
+        while temp:
+            indexed.append(temp.val)
+            temp = temp.next
+
+        n = len(indexed)
+        for i in range(n//2+1):
+            res = max(res,indexed[n-1-i]+indexed[i])
+        return res
+
