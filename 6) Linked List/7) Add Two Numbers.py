@@ -7,7 +7,9 @@ Here as the linked list is reversed, we automatically starting adding from last.
 
 def addTwoNumbers(l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
     temp = ListNode(None)  #starting the new linked list for the result(will point to the head of the new linked list. 
-                           #this makes easy for the iteration of the new linked list putting values at next and thus we dont have to worry about what's on the next(if its None))
+                           #this makes easy for the iteration of the new linked list putting values at next. 
+                           #If we just put value direcly there, now using curr=curr.next for the iteration process wont work as now thought the present node is defined, 
+                           #the next node isnt i.e its None)
     curr =  temp  #pointer for the linked list
     carry = 0
     
