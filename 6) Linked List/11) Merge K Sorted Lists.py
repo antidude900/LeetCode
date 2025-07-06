@@ -44,4 +44,4 @@ def mergeKLists(self, lists: List[Optional[ListNode]]) -> Optional[ListNode]:  #
             l2 = lists[i+1] if (i+1)<len(lists) else None
             merged.append(self.mergeLists(l1,l2))  #merge the two adjacent linked lists
         lists = merged  #update the lists with the merged linked lists
-    return lists[0]  #return the remaning linked list i.e our final merged one
+    return lists[0]  #return the single remaining linked list i.e our final merged one
