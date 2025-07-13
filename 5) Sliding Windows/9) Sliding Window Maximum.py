@@ -15,10 +15,10 @@ So we use deque(double ended queue) where can insert and remove from both sides!
 
 def maxSlidingWindow(nums: List[int], k: int) -> List[int]:
     q = deque()
-    l = r = 0
-    output = []
+    l = 0
+    res = []
     
-    while r<len(nums):
+    for r in range(len(nums)):
         while q and nums[q[-1]]<nums[r]:    #removing all lesser value to the left of the new value
             q.pop()
         q.append(r)    #after removing all lesser values to its left, we finally add it to the deque
@@ -26,8 +26,8 @@ def maxSlidingWindow(nums: List[int], k: int) -> List[int]:
         if l>q[0]:    #if the value is outside the window(meaning its index is less than the left index of the window), we stop tracking it
             q.popleft()
         
-        if (r-l+1) >= k:    #if the size of the window we have made till now is of max size, we start getting our max values for the window and then slide it
-            output.append(nums[q[0]])
+        if (r-l+1) == k:    #if the size of the window we have made till now is of max size, we start getting our max values for the window and then slide it
+            res.append(nums[q[0]])
             l+=1
-        r+=1
-    return output
+            
+    return res
