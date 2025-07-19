@@ -22,4 +22,4 @@ def firstBadVersion(n: int) -> int:
         else:
             left = mid+1
     
-    return -1 if left>n else left
+    return left
