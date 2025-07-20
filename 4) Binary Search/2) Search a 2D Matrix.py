@@ -11,20 +11,21 @@ def searchMatrix(matrix: List[List[int]], target: int) -> bool:
   
     while startRow <= endRow:    #binary search of row
         midRow = startRow + (endRow - startRow) // 2    #is equivalent to (startRow+endRow)/2. But this method will prevent overflow of number
+        nums=matrix[midRow]
         
-        if matrix[midRow][0] <= target <= matrix[midRow][-1]:    
-            left, right = 0, len(matrix[midRow]) - 1
+        if nums[0] <= target <= nums[-1]:    
+            left, right = 0, len(nums) - 1
             while left <= right:    #binary search of column of the correct row
                 mid = left + (right - left) // 2
-                if matrix[midRow][mid] == target:
+                if nums[mid] == target:
                     return True
-                elif matrix[midRow][mid] < target:
+                elif nums[mid] < target:
                     left = mid + 1
                 else:
                     right = mid - 1
             return False
             
-        elif target > matrix[midRow][-1]:
+        elif target > nums[-1]:
             startRow = midRow + 1
             
         else:
