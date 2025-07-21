@@ -31,13 +31,15 @@ class TimeMap:
             return timestamps[-1][1]
 
         left, right = 0, len(timestamps)-1
+        res = ""
         
         while left <= right:
             mid = left+(right - left) // 2
             if timestamp == timestamps[mid][0]:
                 return timestamps[mid][1]
             elif timestamp > timestamps[mid][0]:
+                res = timestamps[mid][1] #as this timestamp is less than the timestamp we require, it might be the timestamp_prev result value
                 left = mid + 1
             else:
                 right = mid -1
-        return timestamps[right][1]
+        return res    #at the end, the latest value which is less than the timestamp will be final timestamp_prev for the output(if we dont find the exact timestamp)
