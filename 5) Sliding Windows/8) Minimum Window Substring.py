@@ -24,7 +24,7 @@ def minWindow(s: str, t: str) -> str:
     
     have, need = 0, len(tCount)
     l = 0
-    res, resLen = [-1,-1], float("inf")
+    res, resLen = [-1,-1], float("inf") #could have direcly stored the syring in res but slicing every single update brings performance issue
     
     for r,c in enumerate(s):
         sCount[c] =  sCount.get(c,0)+1
