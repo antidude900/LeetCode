@@ -2,7 +2,9 @@
 Approach: Given a linked list with each node having next and random pointer, we have to make a deep copy(not referenced copy) of the linked list.
 If there was no random pointer, we could have done it in one pass by simply making a new node of each and then connecting them
 (by saving the previous copy node by prev and doing prev.next = cpy)
-But we have random pointer! This points to any one of the node in the linked list and we dont know which. So we cant access the copy node to which the random pointer points to.
+But we have random pointer! This points to any one of the node in the linked list and we dont know which(because its copy may not exists. For next, we can directly create a copy of next to the node 
+and there may not be any problem because we can reference that for the next one. for for random, if we make a copy of the random, then referencing it will be hard when we reach to it at the future. 
+so we may have made a new copy of the same node for the next of its previous node) So we cant access the copy node to which the random pointer points to directly.
 This is why we require two pass! In one pass, we create copy of each node and store them as a value to their original node (so that we can find the copy of any node)
 Then in second pass, we find the copy of the nodes pointed by next and random pointer of the original node and then update the next and random pointer of the copy node.
 """
