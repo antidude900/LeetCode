@@ -14,6 +14,11 @@ def addTwoNumbers(l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[Li
     carry = 0
     
     while l1 or l2 or carry: #the two numbers maynot be of the same size or the carry comes in the highest place number's addition
+        if not (l1 and l2) and not carry: #if one of the two has already finished and there is no carry present, we simply join the remaning as it is
+                                          #you might think, if only one linked list remains then doesnt matter if carry exists or not; lets just add the carry to the first of the remaining one and over!
+                                          #but what if the carry generates another carry with the number of the remaning one. for eg: [9,9,9,9,9,9] and [1,1,1]
+            curr.next = l1 or l2
+            break
 
         #if the linked list still not ended, take the latest value from that list to add. Else it means just the other linked list or carry is left to add.
         val1 = l1.val if l1 else 0  
