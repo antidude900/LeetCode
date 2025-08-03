@@ -1,5 +1,5 @@
-# DSA
+# Leetcode
 
-Solving DSA Problems from NeetCode 250 List
+Solving Leetcode Problems from NeetCode 250 List
 
 https://neetcode.io/
