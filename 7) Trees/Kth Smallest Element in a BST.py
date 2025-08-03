@@ -17,7 +17,7 @@ def kthSmallest(root: Optional[TreeNode], k: int) -> int:
         
         nonlocal res,k    #nested function always creates a locat variable for itself. so to avoid that, we use give it nonlocal scope    
         k-=1    #the current node is of the smallest.  so deduct the value of k
-        if k == 0:    #if k = 0, this is the node we are looking for
+        if k == 0:    #if k = 0, this is the node we are looking for (If it was 0-indexed, we have to set k=k+1 to bring the count back to 1 indexed
             res = root.val    
             return 
             
