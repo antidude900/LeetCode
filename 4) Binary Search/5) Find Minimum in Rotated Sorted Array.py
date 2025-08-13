@@ -9,6 +9,8 @@ But why are we checking to its right? well because the elements are being shifte
 if we had done nums[m]>nums[l]: r = m, it will find the minimum for the rotated part which infact wont have the minimum. 
 so u might think l=m to remove the rotated part but what if the array is rotated back to its fully sorted form. then instead of eliminating the roatated part, you are eliminating the part having minimum!
 Hence its always to check from the right as it will start finding minimum from the non rotated part and also if not rotated at all it is shifting towards the left surely giving us the minimum.
+So the left pointer may be of the rotate or not rotated part and thus according to that the condition changes but the right pointer is for sure to be of the non rotated part and thus it can be handled by 
+a single condition
 To conclude, its better to check from right and shift towards left rather than checking from left and shifting towards the left
 (shifing towards the left is always a good idea as the array is sorted and hence the minimum will be at its left)
 So we dont have to see the right half and we just see the left part(because we might have took mid between in the sorted portion meaning there can me more less ones in the left)
