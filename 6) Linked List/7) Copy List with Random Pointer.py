@@ -35,7 +35,7 @@ def copyRandomList(head: 'Optional[Node]') -> 'Optional[Node]':
 #One pass
 def copyRandomList(self, head: 'Optional[Node]') -> 'Optional[Node]':
     cpyMap = {}
-    def clone(node):
+    def deepCopy(node):
         #if its the end of the linked list(equivalent to cpyMap = {None:None})
         if not node:    
             return None
@@ -50,9 +50,9 @@ def copyRandomList(self, head: 'Optional[Node]') -> 'Optional[Node]':
 
         #now we again do the same check as above for the next and random pointer and then assign it to the new deepcopy's next and random pointer
         #as per the recursion, the nodes will start being completely built in reverse direction(from end of the linked list to start of the linked list)
-        copy.next = clone(node.next)
-        copy.random = clone(node.random)
+        copy.next = deepCopy(node.next)
+        copy.random = deepCopy(node.random)
         
         return copy
         
-    return clone(head) #the last return of the recursion will be the copy of the head node which is the starting of our deepcopy of the linked list
+    return deepCopy(head) #the last return of the recursion will be the copy of the head node which is the starting of our deepcopy of the linked list
