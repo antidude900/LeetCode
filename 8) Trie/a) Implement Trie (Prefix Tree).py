@@ -1,4 +1,4 @@
-###
+"""
 Approach: A Trie is simply a binary tree used to store strings where each letter of the string is treated as a node.Due to the tree traversal it makes the string search faster. 
 But we already have hashset for that then why need Trie? Well because we cant search a for a substring among the strings. For example we have a string apple in the hashset
 and now we need to find a substring 'app'? We cant do that in the hashmap but we can do that in the Trie as each letter sequence is a branch in itself in the tree and we can
@@ -27,8 +27,7 @@ of the last node which conveys that if the last node is the last letter then yes
 
 And for the startsWith, its the same as "searching" but at the end we dont have to check for the property 'ends' and just can return True because we dont care if its a whole
 word or a subtring.
-###
-
+"""
 
 class TrieNode:
     def __init__(self):
