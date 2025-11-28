@@ -17,14 +17,6 @@ class TrieNode:
     def __init__(self):
         self.children = {}
         self.word = None
-
-    def addWord(self,word):
-        curr = self
-        for c in word:
-            if c not in curr.children:
-                curr.children[c] =  TrieNode()
-            curr = curr.children[c]
-        curr.word = word 	#Here we have to return the word as answer after finding the word. so saving the whole word at the end so it becomes easy to return the answer
         
 class Solution:
     def findWords(self, board: List[List[str]], words: List[str]) -> List[str]:
@@ -32,7 +24,12 @@ class Solution:
         #Building the prefix tree 
         root = TrieNode()
         for word in words:
-            root.addWord(word)
+            curr = root
+            for ch in word:
+                if ch not in curr.children:
+                    curr.children[ch] =  TrieNode()
+                curr =  curr.children[ch]
+        	curr.word = word 	#Here we have to return the word as answer after finding the word. so saving the whole word at the end so it becomes easy to return the answer
 
         rows, cols = len(board), len(board[0])
         result = []
