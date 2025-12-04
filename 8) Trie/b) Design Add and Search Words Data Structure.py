@@ -46,3 +46,45 @@ class WordDictionary:
                     curr = curr.children[c]
             return curr.endOfWord
         return dfs(0,self.root)
+
+#Stack Version (Just replicating recursion in stack to reduce overhead, but not alot much faster than the recursion one)
+class TrieNode:
+    def __init__(self):
+        self.children = {}
+        self.word = False
+
+class WordDictionary:
+
+    def __init__(self):
+        self.root = TrieNode()
+
+    def addWord(self, word: str) -> None:
+        curr = self.root
+        for ch in word:
+            if ch not in curr.children:
+                curr.children[ch] = TrieNode()
+            curr = curr.children[ch]
+        curr.word = True
+
+    def search(self, word: str) -> bool:
+        stack = [(0, self.root)]
+
+        while stack:
+            idx, node = stack.pop()
+            if idx == len(word):
+                if node.word:
+                    return True
+                continue
+                
+            ch = word[idx]
+            if ch == '.':
+                for child in node.children.values():
+                    stack.append((idx + 1, child))
+                continue
+
+            if ch in node.children:
+                stack.append((idx + 1, node.children[ch]))
+
+        return False
+
+
