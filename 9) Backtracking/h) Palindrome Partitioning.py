@@ -4,7 +4,7 @@ In this question, we need a helper function to check if every substring we are m
 Also, here we will be needing a inner loop which gives us our current index. the reason behind it is that we need our previous index to know where we started from
 to make the substring. Here the current index will only can start from the previous index and not before it as the same character cannot be used again to make another substring
 You can visualize the previous index as the starting of the new substring and the current index as the potential end. Thus if we go before the previous index, we are using the
-character of the previous index
+character of the previous substring
 """
 
 def partition(self, s: str) -> List[List[str]]:
